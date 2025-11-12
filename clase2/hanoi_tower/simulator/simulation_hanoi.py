@@ -1,6 +1,7 @@
 import json
 import pygame
 import sys
+import os
 
 # Importing custom modules
 import animator
@@ -15,8 +16,12 @@ from constants import *
 # Sequence Loading
 # ----------------------------------------------
 
-# Function to load configuration from JSON file
-def load_configuration(file_path):
+# Carpeta donde está este script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Función para cargar JSON
+def load_configuration(filename):
+    file_path = os.path.join(BASE_DIR, filename)
     with open(file_path, "r") as json_file:
         return json.load(json_file)
 
